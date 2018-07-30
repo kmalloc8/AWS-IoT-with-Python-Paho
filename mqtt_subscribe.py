@@ -5,8 +5,8 @@ import ssl
 # Define Variables
 MQTT_PORT = 8883
 MQTT_KEEPALIVE_INTERVAL = 45
-MQTT_TOPIC = "helloTopic"
-MQTT_MSG = "hello MQTT"
+MQTT_TOPIC = "smartCurtainSub"
+MQTT_MSG = "hello SmartCurtain"
 
 MQTT_HOST = "put your Custom Endpoint here"
 CA_ROOT_CERT_FILE = "put AWS IoT Root Certificate File Name here"
@@ -15,16 +15,16 @@ THING_PRIVATE_KEY = "put your Thing's Private Key File Name here"
 
 # Define on connect event function
 # We shall subscribe to our Topic in this function
-def on_connect(mosq, obj, rc):
+def on_connect(self, mosq, obj, rc):
     mqttc.subscribe(MQTT_TOPIC, 0)
 
 # Define on_message event function. 
 # This function will be invoked every time,
 # a new message arrives for the subscribed topic 
 def on_message(mosq, obj, msg):
-	print "Topic: " + str(msg.topic)
-	print "QoS: " + str(msg.qos)
-	print "Payload: " + str(msg.payload)
+	print("Topic: " + str(msg.topic))
+	print("QoS: " + str(msg.qos))
+	print("Payload: " + str(msg.payload))
 
 def on_subscribe(mosq, obj, mid, granted_qos):
     print("Subscribed to Topic: " + 

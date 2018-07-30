@@ -6,8 +6,8 @@ import time
 # Define Variables
 MQTT_PORT = 8883
 MQTT_KEEPALIVE_INTERVAL = 45
-MQTT_TOPIC = "helloTopic"
-MQTT_MSG = "hello MQTT"
+MQTT_TOPIC = "smartCurtainPub"
+MQTT_MSG = "hello SmartCurtain"
 
 MQTT_HOST = "put your Custom Endpoint here"
 CA_ROOT_CERT_FILE = "put AWS IoT Root Certificate File Name here"
@@ -17,7 +17,7 @@ THING_PRIVATE_KEY = "put your Thing's Private Key File Name here"
 
 # Define on_publish event function
 def on_publish(client, userdata, mid):
-	print "Message Published..."
+	print("Message Published...")
 
 
 # Initiate MQTT Client
